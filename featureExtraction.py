@@ -92,14 +92,14 @@ if __name__ == "__main__":
             outputs = model.inference_FE(inputs)
             outputs_list.extend(outputs)
             if batch_idx % 30 == 0:
-                save_RF(im_names_list, outputs_list, args.output_dir, args.bucket, append)
+                #save_RF(im_names_list, outputs_list, args.output_dir, args.bucket, append)
                 append = True
                 outputs_list = []
                 im_names_list = []
-    save_RF(im_names_list, outputs_list, args.output_dir, args.bucket, append)
+    #save_RF(im_names_list, outputs_list, args.output_dir, args.bucket, append)
     
-    with open(args.log_path, 'a') as file:
-        file.write("Finish {} !!\n".format(args.bucket, args.threshold))
+    #with open(args.log_path, 'a') as file:
+        #file.write("Finish {} !!\n".format(args.bucket, args.threshold))
     
     print("Finish !! bucket={}, threshold={}, ".format(args.bucket, args.threshold))
     #assert len(region_features_reload) == len(abs_paths)
