@@ -46,7 +46,7 @@ def save_RF(im_names_list, outputs_list, save_dir, bucket, append):
         inst = output['instances']
         im_id = os.path.basename(im_name).replace(".jpg", "")
         region_features = {"image_size": inst.image_size, "num_instances": len(inst),\
-                                                                         "pred_boxes": inst.pred_boxes, "scores": inst.scores, \
+                                                                         "pred_boxes": inst.pred_boxes.tensor, "scores": inst.scores, \
                                                                          "pred_classes": inst.pred_classes, \
                                                                           "fc1_features": inst.fc1_features, \
                                                                          "cls_features": inst.cls_features}
@@ -54,14 +54,19 @@ def save_RF(im_names_list, outputs_list, save_dir, bucket, append):
             pickle.dump(region_features,fp)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--bucket', type=str)
+parser.add_argument('--input_dir', type=str)
 parser.add_argument('--batch_size', type=int, default=4)
 parser.add_argument('--threshold', type=str, default='0.0')
-parser.add_argument('--output_dir', type=str, default="/data/yingshac/MMMHQA/imgFeatures/")
+parser.add_argument('--output_dir', type=str, default="/data/yingshac/MMMHQA/imgFeatures_x_distractors/")
 parser.add_argument('--log_path', type=str, default="./log.txt")
 parser.add_argument('--start', type=int)
 parser.add_argument('--end', type=int)
+
 args = parser.parse_args()
+args.bucket = args.input_dir.strip("/").split("/")[-1]
+print("input_dir = ", args.input_dir)
+print("output_dir = ", args.output_dir)
+print("bucket = ", args.bucket)
 
 if __name__ == "__main__":
     threshold = float(args.threshold)
@@ -74,8 +79,7 @@ if __name__ == "__main__":
     DetectionCheckpointer(model).load(cfg.MODEL.WEIGHTS) 
     #model = torch.nn.DataParallel(model, device_ids=[0,1,2]).module
 
-    folder = "/data/yingshac/MMMHQA/gold_test/" if args.bucket=='gold' else "/data/yingshac/MMMHQA/distractors/"
-    abs_paths = [os.path.join(folder, im_name) for im_name in sorted(os.listdir(folder))[args.start:args.end]]
+    abs_paths = [os.path.join(args.input_dir, im_name) for im_name in sorted(os.listdir(args.input_dir))[args.start:args.end]]
     dataset = MyDataset(abs_paths, cfg.INPUT.MIN_SIZE_TEST, cfg.INPUT.MAX_SIZE_TEST)
 
 
@@ -92,14 +96,14 @@ if __name__ == "__main__":
             outputs = model.inference_FE(inputs)
             outputs_list.extend(outputs)
             if batch_idx % 30 == 0:
-                #save_RF(im_names_list, outputs_list, args.output_dir, args.bucket, append)
+                save_RF(im_names_list, outputs_list, args.output_dir, args.bucket, append)
                 append = True
                 outputs_list = []
                 im_names_list = []
-    #save_RF(im_names_list, outputs_list, args.output_dir, args.bucket, append)
+    save_RF(im_names_list, outputs_list, args.output_dir, args.bucket, append)
     
-    #with open(args.log_path, 'a') as file:
-        #file.write("Finish {} !!\n".format(args.bucket, args.threshold))
+    with open(args.log_path, 'a') as file:
+        file.write("Finish {} !!\n".format(args.bucket, args.threshold))
     
     print("Finish !! bucket={}, threshold={}, ".format(args.bucket, args.threshold))
     #assert len(region_features_reload) == len(abs_paths)

@@ -3,6 +3,8 @@ import torch
 from torch.utils.data import Dataset
 from detectron2.data import detection_utils as utils
 import detectron2.data.transforms as T
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 class MyDataset(Dataset):
     def __init__(self, abs_paths, MIN_SIZE_TEST, MAX_SIZE_TEST, USE_CUDA=torch.cuda.is_available()):

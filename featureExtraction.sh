@@ -1,2 +1,1 @@
-CUDA_VISIBLE_DEVICES=1 python featureExtraction.py --batch_size 8 --bucket 'distractors' --start 300000 --end 320000 &
-CUDA_VISIBLE_DEVICES=1 python featureExtraction.py --batch_size 8 --bucket 'distractors' --start 320000 --end 400000
+CUDA_VISIBLE_DEVICES=1 python featureExtraction.py --batch_size 8 --input_dir "/data/yingshac/MMMHQA/x_distractors" --start 30000 --end 40000 &
