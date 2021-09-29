@@ -76,18 +76,23 @@ if __name__ == "__main__":
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = threshold  # set threshold for this model
     cfg.MODEL.WEIGHTS = "/home/yingshac/CYS/WebQnA/RegionFeature/detectron-vlp/e2e_faster_rcnn_X-101-64x4d-FPN_2x-vlp-427.pkl"
     model = build_model(cfg)
+    print("Finish building model")
     DetectionCheckpointer(model).load(cfg.MODEL.WEIGHTS) 
+    print("Finish loading weights")
     #model = torch.nn.DataParallel(model, device_ids=[0,1,2]).module
-
-    abs_paths = [os.path.join(args.input_dir, im_name) for im_name in sorted(os.listdir(args.input_dir))[args.start:args.end]]
+    abs_paths = [os.path.join(args.input_dir, im_name) for im_name in os.listdir(args.input_dir)[args.start:args.end]]
+    #abs_paths = [os.path.join(args.input_dir, im_name) for im_name in sorted(os.listdir(args.input_dir))[args.start:args.end]]
+    print("number of images to load = ", len(abs_paths))
     dataset = MyDataset(abs_paths, cfg.INPUT.MIN_SIZE_TEST, cfg.INPUT.MAX_SIZE_TEST)
 
 
     dataloader = DataLoader(dataset, batch_size=args.batch_size, num_workers=8, shuffle=False, collate_fn = lambda x: x)
+    print("Finish building dataloader")
     model.eval()
     outputs_list = []
     im_names_list = []
     append = False
+    print("start inference")
     with torch.no_grad():
         for batch_idx, item in enumerate(tqdm(dataloader)):
             inputs = [i[0] for i in item]
