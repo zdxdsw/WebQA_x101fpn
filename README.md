@@ -1,26 +1,4 @@
-We've made the following changes to the detectron2 source code:
+**Update (Sep 29):**
+1. We realize that we've made changes to the source code of `detectron2` repo in order to run feature extraction described in [LuoweiZhou/VLP](https://github.com/LuoweiZhou/VLP) under detectron2 framework (because detectron1 is almost deprecated). For reproducibility, we release the source code under `WebQA_x101fpn/detectron2/` in this repo. There is no need to install detectron2 package from [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2)!
 
-**detectron2/modeling/meta_arch/rcnn.py &rarr; GeneralizedRCNN**
-
-```
-def inference_FE(self, inputs, do_postprocess: bool = True):
-        #start = time.time()
-        images = self.preprocess_image(inputs)
-        
-        features = self.backbone(images.tensor)
-        proposals, _ = self.proposal_generator(images, features, None)
-        outputs, _ = self.roi_heads(images, features, proposals, None)
-        #print(f'Time 1: {time.time() - start}')
-        for i, instances in enumerate(outputs):
-            feature = [features[key][i: i + 1] for key in self.roi_heads.in_features]
-            roi_features = self.roi_heads.box_pooler(feature, [instances.pred_boxes])
-            head_features, instances.fc1_features = self.roi_heads.box_head.partial_forward(roi_features)
-            instances.cls_features = self.roi_heads.box_predictor.cls_score(head_features)
-        #print(f'Time 2: {time.time() - start}')
-        if do_postprocess:
-            assert not torch.jit.is_scripting(), "Scripting is not supported for postprocess."
-            return GeneralizedRCNN._postprocess(outputs, inputs, images.image_sizes)
-        else:
-            return outputs
-        return outputs
-```
+2. We clarify here what are arguments `--gold_feature_folder`, `--distractor_feature_folder`, and `--x_distractor_feature_folder`. Basically, during implementation we divide the images into 3 buckets: positive images for image-based queries (`gold`), negative images for image-based queries (`distractors`) and negative images for text-based queries (`x_distractors`), where the 'x' stands for 'cross-modality'. Image- and text-based queries can be disinguished via the "Qcate" field in the dataset file. Text-based queries all have `Qcate == 'text'`, while the rest are image-based ones.
