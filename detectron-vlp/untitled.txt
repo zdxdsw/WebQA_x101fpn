@@ -1,0 +1,52 @@
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_lateral2.bias in checkpoint is torch.Size([512]), while shape of backbone.fpn_lateral2.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_lateral2.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_lateral2.weight in checkpoint is torch.Size([512, 256, 1, 1]), while shape of backbone.fpn_lateral2.weight in model is torch.Size([256, 256, 1, 1]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_lateral2.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_lateral3.bias in checkpoint is torch.Size([512]), while shape of backbone.fpn_lateral3.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_lateral3.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_lateral3.weight in checkpoint is torch.Size([512, 512, 1, 1]), while shape of backbone.fpn_lateral3.weight in model is torch.Size([256, 512, 1, 1]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_lateral3.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_lateral4.bias in checkpoint is torch.Size([512]), while shape of backbone.fpn_lateral4.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_lateral4.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_lateral4.weight in checkpoint is torch.Size([512, 1024, 1, 1]), while shape of backbone.fpn_lateral4.weight in model is torch.Size([256, 1024, 1, 1]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_lateral4.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_lateral5.bias in checkpoint is torch.Size([512]), while shape of backbone.fpn_lateral5.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_lateral5.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_lateral5.weight in checkpoint is torch.Size([512, 2048, 1, 1]), while shape of backbone.fpn_lateral5.weight in model is torch.Size([256, 2048, 1, 1]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_lateral5.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_output2.bias in checkpoint is torch.Size([512]), while shape of backbone.fpn_output2.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_output2.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_output2.weight in checkpoint is torch.Size([512, 512, 3, 3]), while shape of backbone.fpn_output2.weight in model is torch.Size([256, 256, 3, 3]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_output2.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_output3.bias in checkpoint is torch.Size([512]), while shape of backbone.fpn_output3.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_output3.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_output3.weight in checkpoint is torch.Size([512, 512, 3, 3]), while shape of backbone.fpn_output3.weight in model is torch.Size([256, 256, 3, 3]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_output3.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_output4.bias in checkpoint is torch.Size([512]), while shape of backbone.fpn_output4.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_output4.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_output4.weight in checkpoint is torch.Size([512, 512, 3, 3]), while shape of backbone.fpn_output4.weight in model is torch.Size([256, 256, 3, 3]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_output4.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_output5.bias in checkpoint is torch.Size([512]), while shape of backbone.fpn_output5.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_output5.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of fpn_output5.weight in checkpoint is torch.Size([512, 512, 3, 3]), while shape of backbone.fpn_output5.weight in model is torch.Size([256, 256, 3, 3]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: fpn_output5.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of proposal_generator.rpn_head.anchor_deltas.weight in checkpoint is torch.Size([12, 512, 1, 1]), while shape of proposal_generator.rpn_head.anchor_deltas.weight in model is torch.Size([12, 256, 1, 1]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: proposal_generator.rpn_head.anchor_deltas.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of proposal_generator.rpn_head.conv.bias in checkpoint is torch.Size([512]), while shape of proposal_generator.rpn_head.conv.bias in model is torch.Size([256]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: proposal_generator.rpn_head.conv.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of proposal_generator.rpn_head.conv.weight in checkpoint is torch.Size([512, 512, 3, 3]), while shape of proposal_generator.rpn_head.conv.weight in model is torch.Size([256, 256, 3, 3]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: proposal_generator.rpn_head.conv.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of proposal_generator.rpn_head.objectness_logits.weight in checkpoint is torch.Size([3, 512, 1, 1]), while shape of proposal_generator.rpn_head.objectness_logits.weight in model is torch.Size([3, 256, 1, 1]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: proposal_generator.rpn_head.objectness_logits.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of box_head.fc1.bias in checkpoint is torch.Size([2048]), while shape of roi_heads.box_head.fc1.bias in model is torch.Size([1024]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: box_head.fc1.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of box_head.fc1.weight in checkpoint is torch.Size([2048, 25088]), while shape of roi_heads.box_head.fc1.weight in model is torch.Size([1024, 12544]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: box_head.fc1.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of box_head.fc2.bias in checkpoint is torch.Size([2048]), while shape of roi_heads.box_head.fc2.bias in model is torch.Size([1024]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: box_head.fc2.bias will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of box_head.fc2.weight in checkpoint is torch.Size([2048, 2048]), while shape of roi_heads.box_head.fc2.weight in model is torch.Size([1024, 1024]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: box_head.fc2.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of bbox_pred.weight in checkpoint is torch.Size([6400, 2048]), while shape of roi_heads.box_predictor.bbox_pred.weight in model is torch.Size([6400, 1024]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: bbox_pred.weight will not be loaded. Please double check and see if this is desired.
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: Shape of cls_score.weight in checkpoint is torch.Size([1601, 2048]), while shape of roi_heads.box_predictor.cls_score.weight in model is torch.Size([1601, 1024]).
+WARNING [04/27 13:00:18 d2.checkpoint.c2_model_loading]: cls_score.weight will not be loaded. Please double check and see if this is desired.
